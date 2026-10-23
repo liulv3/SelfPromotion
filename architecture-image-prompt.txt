@@ -1,0 +1,43 @@
+Create a polished, precise Chinese software architecture infographic, landscape approximately 16:10, high resolution, for a personal research knowledge workbench. Audience is a scientific researcher, not only engineers. White/off-white background, dark navy typography, teal core layer, restrained blue and amber accents, crisp flat vector-like boxes, lots of whitespace, thin directional arrows, no photorealism, no futuristic decoration, no tiny dense text. Render the following Simplified Chinese labels exactly and legibly. The diagram must communicate that Zotero remains the reader, technical relationships are a graph displayed as a tree, AI outputs are evidence-linked drafts, and reports reuse versioned knowledge.
+
+Title at top: "个人科研知识工作台"
+Subtitle: "保留 Zotero 阅读，让知识、研究进度与汇报连起来"
+
+Use four horizontal architecture layers, clearly labeled with numbered circles on the left. Flow arrows go downward between layers. Place the following:
+
+Layer 1 label "01 输入"
+Three equal source cards:
+"Zotero" with small caption "论文 · PDF · 原始批注"
+"学术来源" with small caption "按领域配置 · 每日发现"
+"研究者" with small caption "研究目标 · 理解笔记 · 实验记录"
+
+Layer 2 label "02 接入"
+Three cards corresponding one-to-one with input cards above:
+"只读联动" with caption "身份去重 · 版本追踪"
+"发现候选池" with caption "先筛选，再接纳"
+"真实活动账本" with caption "活动不等于已理解"
+Draw downward arrows from each input to its corresponding card. An arrow from "发现候选池" down to the knowledge foundation should have a short label "接纳后". Do not depict every discovered paper as automatically fully read or confirmed.
+
+Layer 3 label "03 核心"
+One wide teal-tinted central card titled "证据与知识底座"
+Inside it four short cells:
+"论文版本与原文定位"
+"陈述 · 推导 · 假说"
+"多父技术关系图"
+"审阅记录与知识快照"
+Below those cells a clear caption: "关系用图保存，主干用树展示"
+Use a small accurate icon representing a node with two parents within the multi-parent relation cell; this is a data graph, not a rigid single-parent tree.
+
+Layer 4 label "04 工作台"
+Four equal cards with clear headings:
+"技术导航" caption "主干与分支 · 一句话记忆卡"
+"解读工作室" caption "精读 · 数学推导 · 构思重建"
+"科研管家" caption "新文献 · 进度 · 科研日报"
+"汇报工坊" caption "周报大纲 · 可编辑 PPTX"
+Arrows from the shared knowledge foundation to these cards, indicating they reuse the same foundation.
+
+Across bottom, a long softly amber-tinted support rail titled "受控 Skill / Agent 执行"
+Caption: "工具权限 · 断点恢复 · 费用上限 · 有限轮次"
+Then a small footer below the rail: "关键结论可回到原文；关键变更可审阅；历史报告不被静默改写。"
+
+Avoid extra claims, brand logos, code snippets, invented metrics, or garbled text. Keep typography large and all Chinese text accurate. This is a conceptual architecture approved at product level, not a deployed-system diagram.

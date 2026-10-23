@@ -1,0 +1,57 @@
+# Private research data and generated outputs: keep only the directory guide.
+/data/*
+!/data/README.md
+/outputs/*
+!/outputs/README.md
+
+# Credentials and machine-specific configuration
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+/config/local/
+
+# Runtime data must not leak into source directories either
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.log
+/logs/
+/_scratch/
+/third_party/checkouts/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+
+# JavaScript and generated builds (lockfiles remain tracked)
+node_modules/
+dist/
+build/
+.next/
+coverage/
+.turbo/
+
+# Editors and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+~$*
