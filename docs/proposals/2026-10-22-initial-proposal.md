@@ -1,5 +1,7 @@
 # 个人科研知识工作台：项目建议书
 
+> 历史建议书（2026-10-22）：本轮产品设想与讨论保留。后续重新比较完整应用，已将 Open Notebook 原栈试点列为主路线，替代本文的默认自建栈与相关工期假设。当前请读 [架构入口](../architecture/current-architecture.md)、[基底 ADR](../decisions/0002-open-notebook-base.md)及 [最新项目排序](../research/base-project-ranking.md)。
+
 日期：2026-10-22。范围：开源选型、产品与项目经理交叉讨论、CTO 架构决策。本轮没有安装候选应用、读取个人 Zotero 库、创建每日自动化或完成软件实现。
 
 ## 核心判断
@@ -12,7 +14,7 @@
 
 ## 开源项目筛选
 
-两名检索智能体分别完成 GitHub 路线和博客路线，共评估 13 个候选；主协调者额外核验 Docling、Zotero 官方接口和底层组件文档。详细出处及查询边界见 [GitHub 报告](research-github.md)、[博客报告](research-blogs.md)、[架构资料](architecture-source-notes.md)。
+两名检索智能体分别完成 GitHub 路线和博客路线，共评估 13 个候选；主协调者额外核验 Docling、Zotero 官方接口和底层组件文档。详细出处及查询边界见 [GitHub 报告](../research/2026-10-22/github-projects.md)、[博客报告](../research/2026-10-22/blog-practices.md)、[架构资料](../research/architecture-sources.md)。
 
 | 项目 | 复用位置 | 优点 | 缺点与可靠性判断 |
 |---|---|---|---|
@@ -63,11 +65,11 @@
 
 ## 工程架构、交付拆分与验收
 
-![个人科研知识工作台逻辑架构](architecture-overview.png)
+![个人科研知识工作台逻辑架构](../assets/architecture/overview.png)
 
-图像使用内置图像生成工具制作，已检查文字与连线。该接口没有可核验的模型标识，不能确认是否为用户指定的 image2；[完整提示词](architecture-image-prompt.txt)和[生成记录](architecture-image-generation.md)一并保存。图展示逻辑模块，下面说明实际工程边界。
+图像使用内置图像生成工具制作，已检查文字与连线。该接口没有可核验的模型标识，不能确认是否为用户指定的 image2；[完整提示词](../assets/architecture/prompt.txt)和[生成记录](../assets/architecture/generation.md)一并保存。图展示逻辑模块，下面说明实际工程边界。
 
-三名项目经理已经完成互评，CTO 最终采用本机 React/TypeScript/Vite 工作台 + FastAPI 模块化单体 + SQLite WAL + 单个后台执行 worker。领域库与执行/checkpoint 状态可用不同 SQLite 文件隔离；同一领域库保存知识、活动与快照，报告不做跨库事务。PPT 渲染作为后台子进程执行。[CTO 最终裁决](cto-architecture.md)记录详细责任、真实互评修订和统一估算。
+三名项目经理已经完成互评，CTO 最终采用本机 React/TypeScript/Vite 工作台 + FastAPI 模块化单体 + SQLite WAL + 单个后台执行 worker。领域库与执行/checkpoint 状态可用不同 SQLite 文件隔离；同一领域库保存知识、活动与快照，报告不做跨库事务。PPT 渲染作为后台子进程执行。[CTO 最终裁决](../architecture/overview.md)记录详细责任、真实互评修订和统一估算。
 
 | 负责人 | 核心观点 | 互评后的实质变化 |
 |---|---|---|

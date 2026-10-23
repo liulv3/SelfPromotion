@@ -1,9 +1,9 @@
 # 架构图生成记录
 
-- 最终文件：`architecture-overview.png`。
-- 初稿：`architecture-overview-draft.png`。
+- 最终文件：`overview.png`。
+- 初稿：`overview-draft.png`。
 - 方法：使用内置 `image_gen` 生成，随后以同一工具补齐 Zotero 接入与活动账本通向知识底座的两条箭头；未用程序重绘或替代图像生成。
-- 初始完整提示词：`architecture-image-prompt.txt`。
+- 初始完整提示词：`prompt.txt`。
 - 模型边界：当前工具不公开模型选择参数或可核验模型标识，因此无法确认用户指定的 image2。图像本身已生成并进行文字、模块、箭头与层级目视检查。
 - 本图为产品与逻辑模块架构，具体部署/进程/数据表分工见 CTO 工程裁决。
 

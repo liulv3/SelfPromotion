@@ -1,5 +1,7 @@
 # 项目经理 A：数据、Zotero 与技术知识工程方案
 
+> 首轮实现参考（2026-10-22）：身份、版本、证据与幂等契约继续作为要求；SQLite 和自建平台不是当前默认栈。请先读 [当前架构](../architecture/current-architecture.md)及 [ADR 0002](../decisions/0002-open-notebook-base.md)，再将下文接口适配到 Open Notebook，旧工期需重新估算。
+
 2026-10-22｜依据 CTO 产品契约与三位工程经理的两轮接口讨论。以下为设计与工期估算；未安装软件、未进行性能或语义正确率测试。
 
 **核心观点：先把“原文是哪一版、结论从哪里来、谁确认了修改”做对。** 技术图是这些记录的呈现结果。首版采用 Windows 本地模块化单体，不搭微服务或图数据库；Zotero 继续承担阅读与原件管理。
@@ -50,4 +52,4 @@ B 指出以输出 hash 作幂等键会让恢复产生两个结果；已改成固
 
 未决项仅保留需要实际样本决定的内容：用户学科和最常见 PDF 类型、附件留存/外发偏好、关系标注样本、Windows 解析基线，以及是否需要未来常开端。它们不阻断本地只读接入和证据契约原型；未验证前不承诺定时在线或解析质量。
 
-资料依据：[Zotero Local API](https://www.zotero.org/support/dev/web_api/v3/local_api)、本项目 `cto-product-spec.md`、`research-github.md` 与 `architecture-source-notes.md`。开源项目可靠性沿用检索阶段证据，本文未追加运行验证。
+资料依据：[Zotero Local API](https://www.zotero.org/support/dev/web_api/v3/local_api)、本项目 `../product/scope.md`、`../research/2026-10-22/github-projects.md` 与 `../research/architecture-sources.md`。开源项目可靠性沿用检索阶段证据，本文未追加运行验证。

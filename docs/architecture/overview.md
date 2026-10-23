@@ -1,6 +1,8 @@
 # CTO 最终架构裁决
 
-2026-10-22｜本轮交付是选型与实施方案：三位产品经理完成交叉讨论，三位项目经理完成接口互评；尚未安装集成、运行领域评测或验收软件。详细产品边界见 `cto-product-spec.md`，工程依据见 `project-platform.md`、`project-intelligence.md`、`project-operations.md`。
+> 历史方案（2026-10-22）：本文的默认 Vite/FastAPI/SQLite 栈与工期假设已由 [ADR 0002](../decisions/0002-open-notebook-base.md) 调整。当前按 [Open Notebook 原栈试点架构](current-architecture.md)执行规划；下文保留原讨论，领域契约与风险分析仍可参考。
+
+2026-10-22｜本轮交付是选型与实施方案：三位产品经理完成交叉讨论，三位项目经理完成接口互评；尚未安装集成、运行领域评测或验收软件。详细产品边界见 `../product/scope.md`，工程依据见 `../engineering/platform.md`、`../engineering/intelligence.md`、`../engineering/operations.md`。
 
 **结论：做一个连接 Zotero 的本地科研工作台。** Zotero 负责原始文献与阅读；工作台负责技术关系、带原文依据的理解、真实研究活动和汇报。先把单用户、一个研究主题、一个合适的发现源跑通，保留三种受控解读模板与固定周报模板；不扩大为通用 Agent 平台。
 
@@ -19,7 +21,7 @@
 
 AnythingLLM 可用 3–5 个工作日做问答与引用体验原型，属于首周时间盒；若接口不适合就停止扩展。正式工作台启用后撤下原型，不保留第二套生产知识库、调度器或 Agent 入口。Open Notebook 留作原型替代候选，不叠加部署。GraphRAG 不作技术谱系核心；ArxRec 仅借鉴思路；Paper2Slides 不承担可编辑 PPT 的最终输出。组件固定版本并经试点验收，不能由“有 README/测试”推定本项目已可靠。
 
-架构图 `architecture-overview.png` 展示逻辑分工，图中各框不意味着独立微服务。将来确需多端写入或常开权威库时，再把同一核心迁至 PostgreSQL；不保留两个正式写入主库。常开端访问本机 Zotero/附件的问题要另做明确桥接或授权 Web 接口，不能直接使用本地路径。
+架构图 `../assets/architecture/overview.png` 展示逻辑分工，图中各框不意味着独立微服务。将来确需多端写入或常开权威库时，再把同一核心迁至 PostgreSQL；不保留两个正式写入主库。常开端访问本机 Zotero/附件的问题要另做明确桥接或授权 Web 接口，不能直接使用本地路径。
 
 ## 经理观点与实际讨论带来的修改
 

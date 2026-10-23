@@ -1,22 +1,21 @@
-# 个人科研知识工作台：调研与架构方案
+# SelfPromotion · 个人科研知识工作台
 
-本轮任务：按用户要求创建 2 名检索智能体、3 名产品经理、3 名项目经理与 1 名 CTO，进行项目筛选、交叉讨论、产品规格汇总和实现架构设计。当前工作属于方案阶段，未安装候选系统或连接个人 Zotero 数据库。
+让 Zotero 中读过的论文形成可回想的记忆卡、可核查的技术谱系，以及可复用的科研日报和周报。
 
-## 交付文件
+**当前阶段：方案与仓库建设，尚未引入上游应用、安装依赖或实现运行功能。** 最新主路线是基于 Open Notebook 原栈进行改造试点，详见 [基底决策](docs/decisions/0002-open-notebook-base.md)。
 
-- [完整项目建议书](research-workbench-proposal.md)
-- [结构图](architecture-overview.png)
-- [GitHub 独立检索](research-github.md)
-- [博客发现与官方回源核验](research-blogs.md)
-- [额外架构资料核验](architecture-source-notes.md)
-- [产品经理 A：Zotero、技术链、记忆卡](product-library.md)
-- [产品经理 B：精读、推导与 Skill](product-reading.md)
-- [产品经理 C：科研管家与 PPT](product-steward.md)
-- [CTO 产品契约与工程交接](cto-product-spec.md)
-- [CTO 最终架构与工期裁决](cto-architecture.md)
-- [项目经理 A：数据与平台](project-platform.md)
-- [项目经理 B：AI 与任务执行](project-intelligence.md)
-- [项目经理 C：工作台与汇报](project-operations.md)
-- [图像生成提示词](architecture-image-prompt.txt)及[生成与检查记录](architecture-image-generation.md)
+## 从这里开始
 
-检索日期：2026-10-22。候选项目的维护状态、许可证和接口以此次读取的一手来源为准；可靠性评级为选型判断，未代表本项目已达到实测指标。
+- 智能体与协作者：[核心约定](AGENTS.md) → [任务文档索引](docs/INDEX.md) → [当前状态](docs/STATUS.md)。
+- 理解产品：[产品范围](docs/product/scope.md)、[当前架构](docs/architecture/current-architecture.md)。
+- 看选型：[项目排序](docs/research/base-project-ranking.md)、[博客排序](docs/research/blog-practice-ranking.md)。
+- 开始开发：[目录规范](docs/development/repository-layout.md)、[Git 流程](docs/development/git-workflow.md)。
+
+现阶段可执行检查（Python 3.9+，仅标准库）：
+
+```text
+python scripts/check_repo.py
+git diff --check
+```
+
+没有应用启动命令；代码目录目前只是职责说明。个人论文和笔记默认不进入 Git，Zotero 中已有原件保持原位。上轮根目录文件的去向见 [迁移记录](docs/development/document-migration.md)。
