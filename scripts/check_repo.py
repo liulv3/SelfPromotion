@@ -1,4 +1,4 @@
-"""Check repository documentation and private-data tracking boundaries.
+"""Check documentation links, index reachability and tracking boundaries.
 
 Python 3.9+ and Git only. This is not an application test or a secret scanner.
 Ignored personal data is not opened. Run from any directory.
@@ -14,7 +14,6 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = (
     "AGENTS.md",
-    "AGENT.md",
     "README.md",
     ".gitignore",
     "docs/INDEX.md",
@@ -29,6 +28,7 @@ REQUIRED = (
 LINK = re.compile(r"!?\[[^\]\n]*\]\(\s*(<[^>\n]+>|[^\s)]+)(?:\s+[\"'][^\n]*?[\"'])?\s*\)")
 SCHEME = re.compile(r"^[A-Za-z][A-Za-z0-9+.-]*:")
 DATABASE = re.compile(r"\.(?:db|sqlite|sqlite3)(?:-.*)?$", re.IGNORECASE)
+ROOT_MARKDOWN = {"AGENTS.md", "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md", "LICENSE.md"}
 
 
 def git_paths(*args):
@@ -92,6 +92,8 @@ def main():
     for name in sorted(candidates):
         if private_path(name):
             errors.append("Private/runtime file must not be versioned: " + name)
+        if "/" not in name and name.lower().endswith(".md") and (ROOT / name).is_file() and name not in ROOT_MARKDOWN:
+            errors.append("Unexpected root Markdown; use the documented docs/ location: " + name)
 
     # A nested Git checkout can otherwise look like an ordinary source directory.
     submodules = subprocess.run(
@@ -104,6 +106,7 @@ def main():
 
     checked_docs = 0
     checked_links = 0
+    graph = {}
     for name in sorted(candidates):
         path = ROOT / name
         if private_path(name) or path.suffix.lower() != ".md" or not path.is_file():
@@ -114,6 +117,7 @@ def main():
             errors.append("Cannot read {}: {}".format(name, exc))
             continue
         checked_docs += 1
+        graph[path.resolve()] = set()
         for match in LINK.finditer(contents):
             target = match.group(1).strip("<>")
             if target.startswith(("#", "//")) or SCHEME.match(target):
@@ -123,9 +127,24 @@ def main():
                 continue
             checked_links += 1
             resolved = ROOT / target.lstrip("/") if target.startswith("/") else path.parent / target
+            resolved = resolved.resolve()
             if not resolved.exists():
                 line = contents.count("\n", 0, match.start()) + 1
                 errors.append("{}:{}: missing link target {}".format(name, line, target))
+            elif resolved.suffix.lower() == ".md":
+                graph[path.resolve()].add(resolved)
+
+    # Index links may lead through topic indexes; every owned docs/ page must be reachable.
+    reachable = set()
+    pending = [(ROOT / "docs/INDEX.md").resolve()]
+    while pending:
+        current = pending.pop()
+        if current not in reachable:
+            reachable.add(current)
+            pending.extend(graph.get(current, set()) - reachable)
+    docs_pages = {path for path in graph if path.relative_to(ROOT).parts[0] == "docs"}
+    for path in sorted(docs_pages - reachable):
+        errors.append("Document not reachable from docs/INDEX.md: " + path.relative_to(ROOT).as_posix())
 
     if errors:
         print("Repository checks FAILED:")
@@ -133,7 +152,8 @@ def main():
             print("- " + error)
         return 1
     print("Repository checks passed: {} Markdown files, {} local links; no private/runtime files in the versionable file list.".format(checked_docs, checked_links))
-    print("Scope: file targets and tracking boundaries only; no application, semantic, or secret-content validation.")
+    print("All {} docs/ pages are reachable from docs/INDEX.md; root Markdown layout passed.".format(len(docs_pages)))
+    print("Scope: documentation structure and tracking boundaries only; no application, semantic, or secret-content validation.")
     return 0
 
 

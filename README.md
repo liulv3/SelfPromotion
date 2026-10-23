@@ -8,7 +8,7 @@
 
 - 智能体与协作者：[核心约定](AGENTS.md) → [任务文档索引](docs/INDEX.md) → [当前状态](docs/STATUS.md)。
 - 理解产品：[产品范围](docs/product/scope.md)、[当前架构](docs/architecture/current-architecture.md)。
-- 看选型：[项目排序](docs/research/base-project-ranking.md)、[博客排序](docs/research/blog-practice-ranking.md)。
+- 看选型：[功能复用清单](docs/architecture/reuse-plan.md)、[项目排序](docs/research/base-project-ranking.md)、[博客排序](docs/research/blog-practice-ranking.md)。
 - 开始开发：[目录规范](docs/development/repository-layout.md)、[Git 流程](docs/development/git-workflow.md)。
 
 现阶段可执行检查（Python 3.9+，仅标准库）：

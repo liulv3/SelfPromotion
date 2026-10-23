@@ -7,8 +7,8 @@
 | 本次目标 | 首先读取 | 需要时再展开 |
 |---|---|---|
 | 理解项目/确认范围 | [产品范围](product/scope.md)、[当前架构](architecture/current-architecture.md) | [基底决策](decisions/0002-open-notebook-base.md) |
-| 调整目录、Git、发布准备 | [目录规范](development/repository-layout.md)、[Git 流程](development/git-workflow.md) | [上下文读取约定](development/context-loading.md)、[管理方法证据](development/methods-research.md) |
-| 选底座、复用上游 | [基底决策](decisions/0002-open-notebook-base.md)、[项目排序](research/base-project-ranking.md) | [博客排序](research/blog-practice-ranking.md)、2026-10-22 检索证据 |
+| 调整目录、Git、发布准备 | [目录规范](development/repository-layout.md)、[Git 流程](development/git-workflow.md) | [上下文与文档维护约定](development/context-loading.md)、[管理方法证据](development/methods-research.md) |
+| 选底座、复用上游 | [基底决策](decisions/0002-open-notebook-base.md)、[功能复用清单](architecture/reuse-plan.md) | [项目排序](research/base-project-ranking.md)、[博客排序](research/blog-practice-ranking.md)、2026-10-22 检索证据 |
 | 做 Zotero/身份/技术谱系 | [文献与技术链](product/library-and-lineage.md)、[当前架构](architecture/current-architecture.md) | [平台接口参考](engineering/platform.md)；其中旧 SQLite 栈已被新 ADR 调整 |
 | 做精读/数学/Skill | [解读与 Skill](product/reading-and-skills.md)、[当前架构](architecture/current-architecture.md) | [AI 执行参考](engineering/intelligence.md)、[架构一手资料](research/architecture-sources.md) |
 | 做每日发现/科研进度/周报 | [科研管家与报告](product/steward-and-reports.md)、[当前架构](architecture/current-architecture.md) | [工程流程参考](engineering/operations.md)；执行机制需要适配上游 |
@@ -30,4 +30,4 @@
 
 ## 文档维护规则
 
-当前事实写 `STATUS.md`，产品需求写 `product/`，技术现状写 `architecture/current-architecture.md`，关键取舍写 `decisions/`，调研证据写 `research/`。历史讨论不覆盖当前决策；变更时增加或标记替代记录。添加文档时给出用途和入口，迁移时修复引用。每次需要多少上下文由任务决定，不以“全部读过”为目标。
+当前事实写 `STATUS.md`，产品需求写 `product/`，技术现状写 `architecture/current-architecture.md`，关键取舍写 `decisions/`，调研证据写 `research/`。历史讨论不覆盖当前决策；变更时增加或标记替代记录。添加文档时给出用途和入口，须能从本索引逐层到达；迁移时修复引用。每次需要多少上下文由任务决定，不以“全部读过”为目标。具体维护责任见 [文档维护约定](development/context-loading.md)。
