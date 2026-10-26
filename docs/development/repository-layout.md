@@ -8,6 +8,7 @@ SelfPromotion/
   README.md                 人类项目入口
   docs/
     INDEX.md                按任务导航
+    HANDOFF.md              新窗口接手背景、步骤与阶段依赖
     STATUS.md               当前事实与下一步
     product/                产品范围、模块能力与质量边界
     architecture/           当前架构及标注日期的旧方案

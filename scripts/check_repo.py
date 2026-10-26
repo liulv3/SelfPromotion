@@ -17,6 +17,7 @@ REQUIRED = (
     "README.md",
     ".gitignore",
     "docs/INDEX.md",
+    "docs/HANDOFF.md",
     "docs/STATUS.md",
     "docs/architecture/current-architecture.md",
     "docs/decisions/0002-open-notebook-base.md",

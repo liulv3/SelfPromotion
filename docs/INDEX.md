@@ -1,11 +1,12 @@
 # 文档索引：按当前任务读取
 
-先看 [当前状态](STATUS.md)，再选择下表的一条路径。通常先读 1–3 份；只有解决具体问题需要时，才展开附录和历史材料。不要把所有文件一起塞入新会话。
+新窗口先看 [开发交接](HANDOFF.md) 恢复背景，再看 [当前状态](STATUS.md)，选择下表的一条路径。通常先读相关的 1–3 份；只有解决具体问题需要时，才展开附录和历史材料。不要把所有文件一起塞入新会话。
 
 ## 当前权威入口
 
 | 本次目标 | 首先读取 | 需要时再展开 |
 |---|---|---|
+| 新窗口接手、继续开发 | [开发交接](HANDOFF.md)、[当前状态](STATUS.md) | 根据下一步目标选择下方模块；不重跑已完成的调研轮次 |
 | 理解项目/确认范围 | [产品范围](product/scope.md)、[当前架构](architecture/current-architecture.md) | [基底决策](decisions/0002-open-notebook-base.md) |
 | 调整目录、Git、发布准备 | [目录规范](development/repository-layout.md)、[Git 流程](development/git-workflow.md) | [上下文与文档维护约定](development/context-loading.md)、[管理方法证据](development/methods-research.md) |
 | 选底座、复用上游 | [基底决策](decisions/0002-open-notebook-base.md)、[功能复用清单](architecture/reuse-plan.md) | [项目排序](research/base-project-ranking.md)、[博客排序](research/blog-practice-ranking.md)、2026-10-22 检索证据 |
@@ -30,4 +31,4 @@
 
 ## 文档维护规则
 
-当前事实写 `STATUS.md`，产品需求写 `product/`，技术现状写 `architecture/current-architecture.md`，关键取舍写 `decisions/`，调研证据写 `research/`。历史讨论不覆盖当前决策；变更时增加或标记替代记录。添加文档时给出用途和入口，须能从本索引逐层到达；迁移时修复引用。每次需要多少上下文由任务决定，不以“全部读过”为目标。具体维护责任见 [文档维护约定](development/context-loading.md)。
+当前事实写 `STATUS.md`，接手步骤与阶段依赖写 `HANDOFF.md`，产品需求写 `product/`，技术现状写 `architecture/current-architecture.md`，关键取舍写 `decisions/`，调研证据写 `research/`。历史讨论不覆盖当前决策；变更时增加或标记替代记录。添加文档时给出用途和入口，须能从本索引逐层到达；迁移时修复引用。每次需要多少上下文由任务决定，不以“全部读过”为目标。具体维护责任见 [文档维护约定](development/context-loading.md)。
